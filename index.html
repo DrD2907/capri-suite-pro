@@ -1,0 +1,238 @@
+
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Capri | Salón & Belleza</title>
+  <meta name="description" content="Agenda tu cita en Capri. Cortes, color, depilación, masajes y más.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <meta name="theme-color" content="#2d2d2c">
+</head>
+<body>
+  <div class="top-announce" aria-hidden="true">
+    <span class="dot"></span> ¡Bienvenida a Capri! Descubre nuestras promos.
+  </div>
+
+  <header class="site-header">
+    <div class="container header-bar">
+      <a href="#inicio" class="brand">
+        <img src="assets/logotipoCapri.jpeg" alt="Capri — logotipo" class="brand-logo" width="132" height="40">
+      </a>
+      <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="site-nav">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <nav id="site-nav" class="site-nav" aria-label="Navegación principal">
+        <ul>
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#reserva">Reservar</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#testimonios">Testimonios</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="gradient-border" aria-hidden="true"></div>
+  </header>
+
+  <!-- HERO Parallax -->
+  <section id="inicio" class="hero" role="banner" aria-label="Portada Capri">
+    <div class="parallax" style="background-image:url('assets/bannercapri.jpeg');"></div>
+    <div class="container hero-inner fade-in">
+      <span class="badge">Capri • Belleza &amp; Bienestar</span>
+      <h1 class="display">Tu estilo, <span class="gradient-text">a otro nivel</span>.</h1>
+      <p class="lead">Agenda fácil, atención experta y resultados que te encantarán.</p>
+      <a href="#reserva" class="btn btn-cta">
+        <span>Reservar Ahora</span>
+        <i class="fa-solid fa-arrow-right"></i>
+      </a>
+      <div class="meta-pills" aria-hidden="true">
+        <span class="pill"><i class="fa-solid fa-scissors"></i> Estilistas certificados</span>
+        <span class="pill"><i class="fa-solid fa-clock"></i> Horarios flexibles</span>
+        <span class="pill"><i class="fa-solid fa-heart"></i> Cuidado premium</span>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <!-- RESERVA -->
+    <section id="reserva" class="section">
+      <div class="container">
+        <h2 class="section-title">Reserva en línea</h2>
+        <p class="section-subtitle">Disponibilidad en tiempo real y confirmación inmediata.</p>
+
+        <form id="booking-form" class="form" aria-label="Formulario de reserva" novalidate>
+          <div class="grid grid-2">
+            <label class="field fade-in">
+              <span>Nombre y apellido</span>
+              <i class="fa-solid fa-user field-icon" aria-hidden="true"></i>
+              <input type="text" name="nombre" placeholder="Ej. Ana Pérez" autocomplete="name" required />
+              <small class="hint">Ingresa tu nombre completo.</small>
+            </label>
+
+            <label class="field fade-in">
+              <span>Teléfono (WhatsApp)</span>
+              <i class="fa-brands fa-whatsapp field-icon" aria-hidden="true"></i>
+              <input type="tel" name="telefono" inputmode="tel" pattern="[0-9\s+()-](8,)" placeholder="Ej. 987654321" autocomplete="tel" required />
+              <small class="hint">Incluye código de área si es necesario.</small>
+            </label>
+
+            <label class="field fade-in">
+              <span>Servicio</span>
+              <i class="fa-solid fa-spa field-icon" aria-hidden="true"></i>
+              <select name="servicio" id="service-select" required>
+                <option value="" disabled selected>Cargando servicios...</option>
+              </select>
+            </label>
+
+            <label class="field fade-in">
+              <span>Fecha</span>
+              <i class="fa-solid fa-calendar-day field-icon" aria-hidden="true"></i>
+              <input type="date" name="fecha" id="date" required />
+            </label>
+
+            <label class="field fade-in">
+              <span>Hora</span>
+              <i class="fa-regular fa-clock field-icon" aria-hidden="true"></i>
+              <select name="hora" id="time-select" required>
+                <option value="" disabled selected>Elige una fecha y servicio</option>
+              </select>
+            </label>
+
+            <label class="field grid-span-2 fade-in">
+              <span>Comentarios (opcional)</span>
+              <i class="fa-regular fa-message field-icon" aria-hidden="true"></i>
+              <textarea name="comentarios" rows="3" placeholder="Preferencias, estilo, alergias, etc."></textarea>
+            </label>
+
+            <label class="field fade-in">
+              <span>Notificar por</span>
+              <i class="fa-regular fa-paper-plane field-icon" aria-hidden="true"></i>
+              <select name="notificarPor" required>
+                <option value="whatsapp">WhatsApp</option>
+                <option value="email">Email</option>
+              </select>
+            </label>
+
+            <input type="text" name="website" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true">
+          </div>
+
+          <div class="actions">
+            <button class="btn" type="submit" id="submit-btn">
+              <span class="btn-label"><i class="fa-solid fa-calendar-check"></i> Confirmar Reserva</span>
+              <span class="btn-spinner" aria-hidden="true"></span>
+            </button>
+            <small id="form-status" role="status" aria-live="polite"></small>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- GALERÍA ANTES / DESPUÉS -->
+    <section class="section alt" id="galeria">
+      <div class="container">
+        <h2 class="section-title">Antes / Después</h2>
+        <p class="section-subtitle">Desliza para comparar el resultado real de nuestros servicios.</p>
+        <div class="ba-slider fade-in" aria-label="Comparador antes/después">
+          <img src="https://images.unsplash.com/photo-1517837016564-bfc3ffd67455?q=80&w=1600&auto=format&fit=crop" alt="Antes" class="ba-img ba-before"/>
+          <img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1600&auto=format&fit=crop" alt="Después" class="ba-img ba-after"/>
+          <div class="ba-handle" role="slider" tabindex="0" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICIOS + CARRUSEL (auto-selección) -->
+    <section id="servicios" class="section">
+      <div class="container">
+        <h2 class="section-title">Servicios</h2>
+        <div class="services-carousel fade-in" aria-label="Carrusel de servicios Capri">
+          <button class="car-arrow car-prev" type="button" aria-label="Anterior"><i class="fa-solid fa-chevron-left"></i></button>
+          <ul class="car-track" id="car-track" role="list">
+            <li class="car-slide"><button class="service-slide" type="button" data-service-name="Corte de Cabello"><img src="https://images.unsplash.com/photo-1511367461989-f85a21fda167?q=80&w=1600&auto=format&fit=crop" alt="Corte de Cabello" /><span class="car-caption"><i class="fa-solid fa-scissors"></i> Corte de Cabello</span></button></li>
+            <li class="car-slide"><button class="service-slide" type="button" data-service-name="Tinte Completo"><img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1600&auto=format&fit=crop" alt="Tinte Completo" /><span class="car-caption"><i class="fa-solid fa-palette"></i> Tinte Completo</span></button></li>
+            <li class="car-slide"><button class="service-slide" type="button" data-service-name="Depilación"><img src="https://images.unsplash.com/photo-1620331311520-246422fd82fd?q=80&w=1600&auto=format&fit=crop" alt="Depilación" /><span class="car-caption"><i class="fa-solid fa-spa"></i> Depilación</span></button></li>
+            <li class="car-slide"><button class="service-slide" type="button" data-service-name="Masaje Relajante"><img src="https://images.unsplash.com/photo-1616690723413-64b0b34b2d1a?q=80&w=1600&auto=format&fit=crop" alt="Masaje Relajante" /><span class="car-caption"><i class="fa-solid fa-hand-holding-heart"></i> Masaje Relajante</span></button></li>
+            <li class="car-slide"><button class="service-slide" type="button" data-service-name="Peinado y Maquillaje"><img src="https://images.unsplash.com/photo-1517164850305-99a3e65bb47e?q=80&w=1600&auto=format&fit=crop" alt="Peinado y Maquillaje" /><span class="car-caption"><i class="fa-solid fa-wand-magic-sparkles"></i> Peinado y Maquillaje</span></button></li>
+          </ul>
+          <button class="car-arrow car-next" type="button" aria-label="Siguiente"><i class="fa-solid fa-chevron-right"></i></button>
+          <div class="car-dots" id="car-dots" aria-hidden="true"></div>
+        </div>
+
+        <!-- Tarjetas con hover 3D -->
+        <div class="grid grid-autofit">
+          <article class="card service tilt fade-in"><div class="card-ring"></div><i class="fa-solid fa-scissors icon"></i><h3>Corte de Cabello</h3><p>Asesoría de estilo y acabado profesional.</p><div class="meta"><span>45 min</span> • <strong>S/ 35</strong></div></article>
+          <article class="card service tilt fade-in"><div class="card-ring"></div><i class="fa-solid fa-palette icon"></i><h3>Tinte Completo</h3><p>Color uniforme, brillo y protección capilar.</p><div class="meta"><span>90 min</span> • <strong>S/ 120</strong></div></article>
+          <article class="card service tilt fade-in"><div class="card-ring"></div><i class="fa-solid fa-spa icon"></i><h3>Depilación</h3><p>Técnicas seguras con resultados duraderos.</p><div class="meta"><span>30 min</span> • <strong>S/ 40</strong></div></article>
+          <article class="card service tilt fade-in"><div class="card-ring"></div><i class="fa-solid fa-hand-holding-heart icon"></i><h3>Masaje Relajante</h3><p>Alivia tensión y renueva tu energía.</p><div class="meta"><span>60 min</span> • <strong>S/ 80</strong></div></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIOS -->
+    <section id="testimonios" class="section alt">
+      <div class="container">
+        <h2 class="section-title">Testimonios</h2>
+        <div class="testi-carousel fade-in" aria-label="Carrusel de testimonios">
+          <button class="testi-arrow testi-prev" aria-label="Anterior"><i class="fa-solid fa-chevron-left"></i></button>
+          <div class="testi-track" id="testi-track">
+            <article class="testi-item">
+              <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=400&auto=format&fit=crop" alt="Foto cliente"/>
+              <blockquote>“Salí encantada. ¡El color quedó perfecto!”</blockquote>
+              <h4>- Mariela R.</h4>
+            </article>
+            <article class="testi-item">
+              <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?q=80&w=400&auto=format&fit=crop" alt="Foto cliente"/>
+              <blockquote>“Excelente trato y puntualidad. Recomendadísimo.”</blockquote>
+              <h4>- Sofía L.</h4>
+            </article>
+            <article class="testi-item">
+              <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?q=80&w=400&auto=format&fit=crop" alt="Foto cliente"/>
+              <blockquote>“El masaje fue una maravilla. Volveré.”</blockquote>
+              <h4>- Carla M.</h4>
+            </article>
+          </div>
+          <button class="testi-arrow testi-next" aria-label="Siguiente"><i class="fa-solid fa-chevron-right"></i></button>
+          <div class="testi-dots" id="testi-dots" aria-hidden="true"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto" class="section">
+      <div class="container">
+        <h2 class="section-title">Contacto</h2>
+        <div class="contact-grid">
+          <div class="map" aria-label="Mapa de ubicación">
+            <iframe title="Mapa de ubicación" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3901.0!2d-77.0!3d-12.0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sCapri%20Sal%C3%B3n!5e0!3m2!1ses-419!2spe!4v0000000000000" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+          <div class="contact-info">
+            <p><i class="fa-solid fa-location-dot"></i> Dirección: <strong>Tu dirección aquí</strong></p>
+            <p><i class="fa-solid fa-phone"></i> Tel/WhatsApp: <strong><span id="display-whatsapp">—</span></strong></p>
+            <p><i class="fa-solid fa-envelope"></i> Email: <strong><span id="display-email">—</span></strong></p>
+            <div class="social">
+              <a id="whatsapp-button" class="social-btn" href="#" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+              <a class="social-btn" href="#" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+              <a class="social-btn" href="#" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+              <a class="social-btn" href="#" target="_blank" rel="noopener" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>© <span id="year"></span> Capri. Todos los derechos reservados.</small>
+    </div>
+  </footer>
+
+  <button class="to-top" aria-label="Volver arriba"><i class="fa-solid fa-arrow-up"></i></button>
+
+  <script src="script.js"></script>
+</body>
+</html>

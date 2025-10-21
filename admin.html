@@ -1,0 +1,97 @@
+
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Capri | Panel de Administración</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">Capri — Panel</div>
+    <div class="actions">
+      <input type="password" id="admin-key" placeholder="ADMIN_API_KEY" />
+      <button id="btn-login" class="btn">Ingresar</button>
+      <button id="btn-logout" class="btn-outline" title="Cerrar sesión"><i class="fa-solid fa-right-from-bracket"></i></button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <aside class="sidebar">
+      <section class="card">
+        <h3>Filtros</h3>
+        <label>Desde<input type="date" id="from" /></label>
+        <label>Hasta<input type="date" id="to" /></label>
+        <button id="btn-apply" class="btn">Aplicar</button>
+      </section>
+
+      <section class="card">
+        <h3>Nueva cita</h3>
+        <form id="form-create" class="form">
+          <label>Cliente<input name="customer_name" required /></label>
+          <label>Teléfono<input name="phone" required /></label>
+          <label>Servicio<select name="service_id" id="service-select" required></select></label>
+          <label>Fecha<input type="date" name="date" id="date" required /></label>
+          <label>Hora<select name="start_time" id="start-time" required></select></label>
+          <label>Comentarios<textarea name="comments" rows="2"></textarea></label>
+          <button class="btn" type="submit"><i class="fa-solid fa-calendar-plus"></i> Crear</button>
+          <div id="create-status" class="status"></div>
+        </form>
+      </section>
+
+      <section class="card">
+        <h3>Exportar</h3>
+        <button id="btn-export" class="btn-outline"><i class="fa-solid fa-file-excel"></i> Exportar Excel</button>
+      </section>
+    </aside>
+
+    <section class="content">
+      <section class="cards">
+        <article class="kpi"><h4>Citas</h4><div id="kpi-appointments">—</div></article>
+        <article class="kpi"><h4>Ingresos estimados</h4><div id="kpi-revenue">—</div></article>
+        <article class="kpi"><h4>Horas pico</h4><div id="kpi-peak">—</div></article>
+      </section>
+
+      <section class="card">
+        <h3>Estadísticas</h3>
+        <div class="charts">
+          <canvas id="chart-services" height="140"></canvas>
+          <canvas id="chart-hours" height="140"></canvas>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="content-header">
+          <h3>Calendario de Citas</h3>
+          <div>
+            <button id="btn-today" class="btn-outline">Hoy</button>
+            <button id="btn-refresh" class="btn-outline"><i class="fa-solid fa-rotate"></i></button>
+          </div>
+        </div>
+        <div id="calendar"></div>
+      </section>
+
+      <section class="card">
+        <h3>Listado</h3>
+        <div class="table-wrap">
+          <table class="table" id="tbl-appointments">
+            <thead><tr><th>Fecha</th><th>Hora</th><th>Cliente</th><th>Servicio</th><th>Tel</th><th>Estado</th><th>Acciones</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>
